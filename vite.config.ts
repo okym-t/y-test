@@ -13,4 +13,4 @@ export default defineConfig({
       '**/.{idea,git,cache,output,temp}/**',
     ],
   },
-})
+} as any)
