@@ -13,11 +13,14 @@ exports[`should render correctly 1`] = `
         class="App-logo"
         src="/src/logo.svg"
       />
-      <p>
-        Hello Vite + React!
+      <p
+        data-testid="count"
+      >
+        0
       </p>
       <p>
         <button
+          data-testid="count-up-button"
           type="button"
         >
           count is: 
