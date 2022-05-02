@@ -1,47 +1,24 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { css } from '@emotion/react'
+
+const styles = {
+  foo: css({
+    width: '100%',
+    padding: '20px',
+    backgroundColor: 'red',
+  }),
+  bar: css({
+    color: 'blue',
+    textAlign: 'center',
+  }),
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const key = import.meta.env.VITE_API_KEY
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p data-testid="count">{count}</p>
-        <p>
-          <button
-            type="button"
-            onClick={() => setCount((preCount) => preCount + 1)}
-            data-testid="count-up-button"
-          >
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div css={styles.foo}>
+      <p css={styles.bar}>test</p>
+      <p>{key}</p>
     </div>
   )
 }
