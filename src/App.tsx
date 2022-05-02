@@ -9,11 +9,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
+        <p data-testid="count">{count}</p>
         <p>
           <button
             type="button"
             onClick={() => setCount((preCount) => preCount + 1)}
+            data-testid="count-up-button"
           >
             count is: {count}
           </button>

@@ -11,13 +11,16 @@
     "lintfix": "npm run lint -- --fix",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "e2e:all": "playwright test",
+    "e2e:chromium": "playwright test --project=chromium"
   },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.21.1",
     "@testing-library/react": "^13.1.1",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
