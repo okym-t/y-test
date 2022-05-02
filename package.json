@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "VITE_API_KEY=xxxxxx vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
@@ -16,6 +16,7 @@
     "e2e:chromium": "playwright test --project=chromium"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
