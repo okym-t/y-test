@@ -6,7 +6,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint --ext .tsx,.ts src/",
+    "lintfix": "npm run lint -- --fix"
   },
   "dependencies": {
     "react": "^18.0.0",
