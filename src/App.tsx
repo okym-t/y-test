@@ -13,12 +13,9 @@ const styles = {
 }
 
 function App() {
-  const key = import.meta.env.VITE_API_KEY
-
   return (
     <div css={styles.foo}>
       <p css={styles.bar}>test</p>
-      <p>{key}</p>
     </div>
   )
 }
