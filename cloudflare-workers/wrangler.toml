@@ -1,0 +1,8 @@
+name = "api"
+type = "javascript"
+
+account_id = "a1b8fd464a8742f991e6820e6e3f836e"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2022-05-02"
