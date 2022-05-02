@@ -9,13 +9,16 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ext .tsx,.ts src/",
     "lintfix": "npm run lint -- --fix",
-    "format": "prettier --write \"./src/**/*.{ts,tsx}\""
+    "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.1.1",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
@@ -29,8 +32,10 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "happy-dom": "^3.1.0",
     "prettier": "^2.6.2",
     "typescript": "^4.6.3",
-    "vite": "^2.9.5"
+    "vite": "^2.9.5",
+    "vitest": "^0.10.0"
   }
 }
