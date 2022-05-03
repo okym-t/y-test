@@ -13,7 +13,9 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "e2e:all": "playwright test",
-    "e2e:chromium": "playwright test --project=chromium"
+    "e2e:chromium": "playwright test --project=chromium",
+    "dev:api": "cd cloudflare-workers && npm run dev",
+    "deploy:api": "cd cloudflare-workers && npm run publish"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
