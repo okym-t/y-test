@@ -17,4 +17,13 @@ export default defineConfig({
       '**/.{idea,git,cache,output,temp}/**',
     ],
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.okym.workers.dev',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 } as any)
