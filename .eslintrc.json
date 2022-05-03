@@ -28,6 +28,6 @@
     ".eslintrc.*",
     "vite.config.*",
     "playwright.config.*",
-    "api"
+    "cloudflare-workers"
   ]
 }
