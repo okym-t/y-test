@@ -15,6 +15,7 @@ async function handleRequest(request) {
   const init = {
     headers: {
       'content-type': 'application/json;charset=UTF-8',
+      'Access-Control-Allow-Origin': '*',
     },
   }
   if (location) {
