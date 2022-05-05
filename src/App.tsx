@@ -1,4 +1,5 @@
-import { css } from '@emotion/react'
+import { Global, css } from '@emotion/react'
+import emotionReset from 'emotion-reset'
 import { useEffect, useState } from 'react'
 
 const styles = {
@@ -25,9 +26,22 @@ function App() {
 
   if (!prefectures) return <p>loading...</p>
   return (
-    <div css={styles.foo}>
-      <p css={styles.bar}>{JSON.stringify(prefectures)}</p>
-    </div>
+    <>
+      <Global
+        styles={css`
+          ${emotionReset}
+          *, *::after, *::before {
+            box-sizing: border-box;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+          }
+        `}
+      />
+      <div css={styles.foo}>
+        <p css={styles.bar}>{JSON.stringify(prefectures)}</p>
+      </div>
+    </>
   )
 }
 
