@@ -1,30 +1,20 @@
 import { Global, css } from '@emotion/react'
 import emotionReset from 'emotion-reset'
-import { useEffect, useState } from 'react'
+import Header from './components/Header'
 
-const styles = {
-  foo: css({
-    width: '100%',
-    padding: '20px',
-    backgroundColor: 'red',
-  }),
-  bar: css({
-    color: 'blue',
-    textAlign: 'center',
-  }),
-}
-
-const URL = import.meta.env.VITE_API_URL ?? ''
+const content = css({
+  top: 100,
+  backgroundColor: '#fff7f7',
+  minHeight: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: '#204969',
+  textAlign: 'center',
+})
 
 function App() {
-  const [prefectures, setPrefectures] = useState<any | undefined>()
-  useEffect(() => {
-    fetch(`${URL}/api/v1/prefectures`)
-      .then((response) => response.json())
-      .then((json) => setPrefectures(json))
-  }, [])
-
-  if (!prefectures) return <p>loading...</p>
   return (
     <>
       <Global
@@ -38,8 +28,9 @@ function App() {
           }
         `}
       />
-      <div css={styles.foo}>
-        <p css={styles.bar}>{JSON.stringify(prefectures)}</p>
+      <Header />
+      <div css={content}>
+        <p>TODO</p>
       </div>
     </>
   )
