@@ -14,6 +14,6 @@
   "author": "okym <cndd97@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "1.19.1"
   }
 }
