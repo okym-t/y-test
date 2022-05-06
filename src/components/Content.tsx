@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { useEffect, useState } from 'react'
 import CheckboxGroup from './CheckboxGroup'
+import Graph from './Graph'
 
 const content = css({
   backgroundColor: '#fff7f7',
@@ -8,41 +9,30 @@ const content = css({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
   color: '#204969',
   textAlign: 'center',
   marginTop: '56px',
 })
 
-type ApiResponse<T, U> = {
-  data?: T
-  error?: U
-  status: number
-}
-
-type Prefectures = {
-  message: ''
-  result: Prefecture[]
-}
 type Prefecture = { prefCode: number; prefName: string }
+type CheckedPopulation = { prefName: string; data: PopulationData[] }
+type PopulationData = { year: number; value: number }
 
 const URL = import.meta.env.VITE_API_URL ?? ''
 
 function Content() {
-  const [prefectures, setPrefectures] = useState<ApiResponse<
-    Prefectures,
-    any
-  > | null>(null)
+  const [prefectures, setPrefectures] = useState<Prefecture[]>([])
+
+  const [checkedPopulations, setCheckedPopulations] = useState<
+    CheckedPopulation[]
+  >([])
 
   useEffect(() => {
     fetch(`${URL}/api/v1/prefectures`)
       .then((response) => response.json())
-      .then((response) =>
-        setPrefectures({ data: response, status: response.status })
-      )
-      .catch((response) =>
-        setPrefectures({ error: response, status: response.status })
-      )
+      .then((response) => response.result as Prefecture[])
+      .then((response) => setPrefectures(response))
+      .catch(() => {})
   }, [])
 
   const handleClickCheckbox = (
@@ -50,19 +40,34 @@ function Content() {
     prefCode: number,
     check: boolean
   ) => {
-    // eslint-disable-next-line no-console
-    console.log(prefName, prefCode, check)
+    if (check) {
+      fetch(`${URL}/api/v1/population/composition/perYear?prefCode=${prefCode}`)
+        .then((response) => response.json())
+        .then(
+          (response) =>
+            response.result.data.find((data: any) => data.label === '総人口')
+              .data as PopulationData[]
+        )
+        .then((data) =>
+          setCheckedPopulations((prev) => [...prev, { prefName, data }])
+        )
+        .catch(() => {})
+    } else {
+      setCheckedPopulations((prev) =>
+        prev.filter((population) => population.prefName !== prefName)
+      )
+    }
   }
 
   return (
     <div css={content}>
-      {prefectures?.data && (
+      {prefectures && (
         <CheckboxGroup
-          prefectures={prefectures.data.result}
+          prefectures={prefectures}
           onChange={handleClickCheckbox}
         />
       )}
-      {prefectures?.error && <div>Error!</div>}
+      <Graph populations={checkedPopulations} />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 
 const styles = {
   checkboxGroup: css({
+    padding: '24px',
     display: 'inline-grid',
     gridTemplateColumns: 'repeat(10, 1fr)',
     '@media (max-width: 600px)': {
