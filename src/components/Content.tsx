@@ -4,12 +4,12 @@ import CheckboxGroup from './CheckboxGroup'
 import Graph from './Graph'
 
 const content = css({
-  backgroundColor: '#fff7f7',
+  backgroundColor: '#eae3e3',
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  color: '#204969',
+  color: '#2d095c',
   textAlign: 'center',
   marginTop: '56px',
 })

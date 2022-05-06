@@ -6,8 +6,8 @@ const header = css({
   left: 0,
   width: '100%',
   padding: '20px 40px',
-  backgroundColor: '#dadada',
-  color: '#204969',
+  backgroundColor: '#20366b',
+  color: 'white',
   fontWeight: 'bold',
 })
 
